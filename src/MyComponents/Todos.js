@@ -7,12 +7,17 @@ function Todos(props) {
     }
 
     return (
-        <div className="container" style={todosListStyle}>
+        <div className="container my-3" style={todosListStyle}>
             <h3 className="my-3">Todos List</h3>
             {
                 props.todos.length > 0 ?
                     props.todos.map((todo) => {
-                        return <TodoItem todo={todo} key={todo.sno} onDelete={props.onDelete} />
+                        return (
+                            <div key={todo.sno}>
+                                <TodoItem todo={todo} onDelete={props.onDelete} />
+                                <hr />
+                            </div>
+                        )
                     }) : "No Todos to display"
             }
 
